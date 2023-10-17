@@ -5,17 +5,9 @@
 
 struct mobs{
 		
-	char s_nome_slime[25];
-	int i_pv_slm;
-	int i_atk_slm;
-	int i_def_slm;
+	char s_nome_mob[25];
+	int i_pv_mob;
+	int i_atk_mob;
+	int i_def_mob;
 		
 };
-
-void slime(Mobs *mob){
-	s_nome_slime[25] = "Slime";
-	i_pv_slm = 5;
-	i_atk_slm = 1;
-	i_def_slm = 1;
-
-}
