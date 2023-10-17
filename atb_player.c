@@ -1,13 +1,26 @@
-typedef struct{
-	
+#include "atb_player.h"
+#include "mobs.c"
 
-	int i_pv=20;
-	int i_atk=5;
-	int i_def=2;
-	int i_nivel=1;
-	int i_xp=0;
-		
+struct atributoplayer{
 
+	char s_nomeplayer[15];
+	int i_pv;
+	int i_atk;
+	int i_def;
+	int i_nivel;
+	int i_xp;
+	int i_limitexp;
 		
-	}atb_player;
+};
+
+void Inicializar_Atributos(Atributoplayer *player){
+
+	player->i_pv=20;
+	player->i_atk=2;
+	player->i_def=1;
+	player->i_nivel=1;
+	player->i_xp=0;
+	player->i_limitexp=50;
+
+}
 
