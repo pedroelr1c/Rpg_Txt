@@ -1,5 +1,5 @@
 #include "atb_player.h"
-#include "mobs.c"
+
 
 struct atributoplayer{
 
@@ -16,11 +16,10 @@ struct atributoplayer{
 void Inicializar_Atributos(Atributoplayer *player){
 
 	player->i_pv = 10;
-	player->i_atk = 2;
+	player->i_atk = 5;
 	player->i_def = 1;
 	player->i_nivel = 1;
 	player->i_xp = 0;
 	player->i_limitexp = 50;
 
 }
-

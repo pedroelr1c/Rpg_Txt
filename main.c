@@ -3,11 +3,15 @@
 int main (void){
 
     Atributoplayer player;
+    int i, tamanho = 3;
+    Mobs *mobs = malloc(tamanho * sizeof(Mobs));
+
  
     printf("Informe seu nome\n");
     scanf(" %[^\n]",player.s_nomeplayer);
 
     Inicializar_Atributos(&player);
+    Inicializar_Mobs(mobs);
 
     printf("Nome: %s\n",player.s_nomeplayer);
     printf("------------------\n");
@@ -16,5 +20,11 @@ int main (void){
     printf("Def: %d\n",player.i_def);
     printf("Nivel: %d\n",player.i_nivel);
     printf("\n\n");
-    
+
+    for(i=0;i<tamanho;i++){
+        printf("Inimigo: %s\n",mobs[i].s_nome_mob);
+        printf("Hp: %d\n",mobs[i].i_pv_mob);
+        printf("Atk: %d\n",mobs[i].i_atk_mob);
+    }
+
 }
