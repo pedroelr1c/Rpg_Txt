@@ -19,12 +19,13 @@ int main (void){
     printf("Atk: %d\n",player.i_atk);
     printf("Def: %d\n",player.i_def);
     printf("Nivel: %d\n",player.i_nivel);
-    printf("\n\n");
+    printf("Monstros encontrados pelas rendondezas!\n\n");
 
     for(i=0;i<tamanho;i++){
         printf("Inimigo: %s\n",mobs[i].s_nome_mob);
         printf("Hp: %d\n",mobs[i].i_pv_mob);
-        printf("Atk: %d\n",mobs[i].i_atk_mob);
+        printf("Atk: %d\n\n",mobs[i].i_atk_mob);
+        
     }
 
 }

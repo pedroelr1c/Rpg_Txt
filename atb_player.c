@@ -1,5 +1,5 @@
 #include "atb_player.h"
-
+#include "mobs.c"
 
 struct atributoplayer{
 
