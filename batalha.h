@@ -1,1 +1,3 @@
-void combate(Atributoplayer player, Mobs *mob);
+void Andar1(Atributoplayer player, Mobs *mob, int batalha);
+
+void mapa();

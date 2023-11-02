@@ -15,7 +15,7 @@ int main (void){
     Inicializar_Atributos(&player);
     Inicializar_Mobs(mobs);
 
-    combate(player, mobs);
+    Andar1(player, mobs, tamanho);
 
 
 }
