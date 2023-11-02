@@ -10,6 +10,7 @@ struct atributoplayer{
 	int i_nivel;
 	int i_xp;
 	int i_limitexp;
+	int i_moedas;
 		
 };
 
@@ -21,5 +22,6 @@ void Inicializar_Atributos(Atributoplayer *player){
 	player->i_nivel = 1;
 	player->i_xp = 0;
 	player->i_limitexp = 50;
+	player->i_moedas = 50;
 
 }

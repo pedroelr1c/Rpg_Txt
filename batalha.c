@@ -60,16 +60,16 @@ void Andar1(Atributoplayer player, Mobs *mob, int tamanho){
                 if(luta==1){
 
                     // player vai receber o ataque do mob.
-                    player.i_pv -= mob[RNG].i_atk_mob;
+                    player.i_pv -= mob[RNG].i_atk_mob - player.i_def;
                     if(player.i_pv<=0){
                         printf("Você morreu!\n");
                         exit(1);
                     }
 
                     // Mob vai receber o ataque do player.
-                    mob[RNG].i_pv_mob -= player.i_atk; 
+                    mob[RNG].i_pv_mob -= player.i_atk - mob[RNG].i_def_mob; 
                     if(mob[RNG].i_pv_mob<=0){
-                        printf("Mostro derrotado!\n+%d\n",mob[RNG].i_xp_mob);
+                        printf("Mostro derrotado!\n+%d XP\n+%dG\n",mob[RNG].i_xp_mob,mob[RNG].i_moeda_mob);
                         
                         printf("[1] CONTINAR [2] VOLTAR\n");
                         scanf("%d",&luta);
@@ -77,7 +77,7 @@ void Andar1(Atributoplayer player, Mobs *mob, int tamanho){
 
                         // Verifica se o mob está morto para dar o xp ao player.
                         player.i_xp += mob[RNG].i_xp_mob;
-                        
+                        player.i_moedas += mob[RNG].i_moeda_mob;
 
                         Inicializar_Mobs(mob); // Atribuindo atributos novamente aos mobs.
                         RNG = rand() % 2; // Mudando o mob para a próxima batalha.

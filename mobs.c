@@ -11,6 +11,7 @@ struct mobs{
 	int i_atk_mob;
 	int i_def_mob;
 	int i_xp_mob;
+	int i_moeda_mob;
 		
 };
 
@@ -22,6 +23,7 @@ void Inicializar_Mobs(Mobs *mob){
 	mob[0].i_atk_mob = 2;
 	mob[0].i_def_mob = 0;
 	mob[0].i_xp_mob = 25;
+	mob[0].i_moeda_mob = 10;
 
 	// zumbi
 	strcpy(mob[1].s_nome_mob, "zumbi");
@@ -29,6 +31,7 @@ void Inicializar_Mobs(Mobs *mob){
 	mob[1].i_atk_mob = 4;
 	mob[1].i_def_mob = 1;
 	mob[1].i_xp_mob = 40;
+	mob[1].i_moeda_mob = 15;
 
 	// esqueleto
 	strcpy(mob[2].s_nome_mob, "esqueleto");
@@ -36,6 +39,6 @@ void Inicializar_Mobs(Mobs *mob){
 	mob[2].i_atk_mob = 7;
 	mob[2].i_def_mob = 1;
 	mob[2].i_xp_mob = 40;
-
+	mob[2].i_moeda_mob = 20;
 }
 
