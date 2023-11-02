@@ -1,0 +1,1 @@
+void combate(Atributoplayer player, Mobs *mob);
