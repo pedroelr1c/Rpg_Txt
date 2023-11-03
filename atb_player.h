@@ -8,3 +8,5 @@ void Inicializar_Atributos(Atributoplayer *player);
 void Atribuir_Itens(Itens *itens);
 
 void Inventario(Itens *itens, int quantidadeItens);
+
+void LimparBuffer();

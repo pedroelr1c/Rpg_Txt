@@ -81,6 +81,10 @@ void Inventario(Itens *itens, int quantidadeItens){
 		printf("Inventario vazio!\n");
 	}
 
+}
+void LimparBuffer(){
+	int c;
+
+	while ((c = getchar()) != '\n' && c != EOF);
 
 }
-

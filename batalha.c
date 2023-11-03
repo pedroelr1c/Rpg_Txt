@@ -35,6 +35,7 @@ void Andar1(Atributoplayer player, Mobs *mob, int tamanho){
 
             printf("[1] Batalhar [2] Voltar\n");
             scanf("%d",&escolha);
+            LimparBuffer();
 
     }while(escolha != 2 && escolha != 1);
     
@@ -78,10 +79,9 @@ do{
     printf("Nivel: %d\n",player.i_nivel);
     printf("%dG\n",player.i_moedas);
 
-    printf("[1] ATACAR [2] MOCHILA [3] FUGIR\n");
+    printf("[1] ATACAR [2] FUGIR\n");
     scanf("%d",&luta);
-    getchar();
-    
+    LimparBuffer();
     
     switch(luta){
 
@@ -109,7 +109,8 @@ do{
 
                 printf("[1] CONTINAR [2] VOLTAR\n");
                 scanf("%d",&luta);
-                getchar();
+                LimparBuffer();
+                
 
                 switch (luta){
                     case 1:
@@ -117,7 +118,23 @@ do{
                         break;
 
                     case 2:
+                                            
                         mapa();
+                        scanf("%d",&escolha);
+                        LimparBuffer();
+                        switch(escolha){
+                            case 1:
+                                printf("NADA AINDA!\n");
+                                break;
+                            case 2:
+                                printf("NADA AINDA!");
+                                break;
+                            case 3:
+                                Andar1(player, mob, tamanho);
+                                break;
+                        }
+                        break;
+
                     default:
                         printf("INVAIDO!\n");
                         exit(1);
@@ -127,10 +144,22 @@ do{
             }
             break;
 
-        // Mochila
-        case 2:
-            
+        // voltar
+        case 2:        
+            mapa();
             scanf("%d",&escolha);
+            LimparBuffer();
+            switch(escolha){
+                case 1:
+                    printf("NADA AINDA!\n");
+                    break;
+                case 2:
+                    printf("NADA AINDA!");
+                    break;
+                case 3:
+                    Andar1(player, mob, tamanho);
+                    break;
+                }
 
             break;
     }
