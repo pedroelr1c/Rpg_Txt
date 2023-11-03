@@ -3,8 +3,12 @@
 #include "batalha.h"
 
 void mapa(){
-    printf("Nada ainda!");
-    exit(1);
+    printf("Mapa\n------------\n");
+    printf("(1) TABERNA\n");
+    printf("(2) FERREIRO\n");
+    printf("(3) DUNGEON\n");
+    
+
 }
 
 void Andar1(Atributoplayer player, Mobs *mob, int tamanho){
@@ -16,6 +20,7 @@ void Andar1(Atributoplayer player, Mobs *mob, int tamanho){
             printf("Atk: %d\n",player.i_atk);
             printf("Def: %d\n",player.i_def);
             printf("Nivel: %d\n",player.i_nivel);
+            printf("%dG\n",player.i_moedas);
             printf("\nMonstros encontrados pelas rendondezas!\n");
 
             
@@ -28,7 +33,7 @@ void Andar1(Atributoplayer player, Mobs *mob, int tamanho){
                 printf("Def: %d\n\n",mob[i].i_def_mob);
             }
 
-            printf("(1) Batalhar\n(2) Voltar\n");
+            printf("[1] Batalhar [2] Voltar\n");
             scanf("%d",&escolha);
 
     }while(escolha != 2 && escolha != 1);
@@ -71,53 +76,65 @@ do{
     printf("Atk: %d\n",player.i_atk);
     printf("Def: %d\n",player.i_def);
     printf("Nivel: %d\n",player.i_nivel);
+    printf("%dG\n",player.i_moedas);
 
-    printf("[1] ATACAR [2] FUGIR\n");
+    printf("[1] ATACAR [2] MOCHILA [3] FUGIR\n");
     scanf("%d",&luta);
     getchar();
-    if(luta==1){
+    
+    
+    switch(luta){
 
-        // player vai receber o ataque do mob.
-        player.i_pv -= mob[RNG].i_atk_mob - player.i_def;
-        if(player.i_pv<=0){
-            printf("Você morreu!\n");
-            exit(1);
-        }
+        // LUTAR
+        case 1:
 
-        // Mob vai receber o ataque do player.
-        mob[RNG].i_pv_mob -= player.i_atk - mob[RNG].i_def_mob; 
-        if(mob[RNG].i_pv_mob<=0){
-            printf("Mostro derrotado!\n+%d XP\n+%dG\n",mob[RNG].i_xp_mob,mob[RNG].i_moeda_mob);
+            // player vai receber o ataque do mob.
+            player.i_pv -= mob[RNG].i_atk_mob - player.i_def;
+            if(player.i_pv<=0){
+                printf("Você morreu!\n");
+                exit(1);
+            }
 
-            // Verifica se o mob está morto para dar o xp ao player.
-            player.i_xp += mob[RNG].i_xp_mob;
-            player.i_moedas += mob[RNG].i_moeda_mob;
+            // Mob vai receber o ataque do player.
+            mob[RNG].i_pv_mob -= player.i_atk - mob[RNG].i_def_mob; 
+            if(mob[RNG].i_pv_mob<=0){
+                printf("Mostro derrotado!\n+%d XP\n+%dG\n",mob[RNG].i_xp_mob,mob[RNG].i_moeda_mob);
 
-            Inicializar_Mobs(mob); // Atribuindo atributos novamente aos mobs.
-            RNG = rand() % 2; // Mudando o mob para a próxima batalha.
+                // Verifica se o mob está morto para dar o xp ao player.
+                player.i_xp += mob[RNG].i_xp_mob;
+                player.i_moedas += mob[RNG].i_moeda_mob;
 
-            printf("[1] CONTINAR [2] MOCHILA [3] VOLTAR\n");
-            scanf("%d",&luta);
-            getchar();
+                Inicializar_Mobs(mob); // Atribuindo atributos novamente aos mobs.
+                RNG = rand() % 2; // Mudando o mob para a próxima batalha.
 
-            switch (luta){
-                case 2:
-                    inventario(&player);
-                    scanf("%d",&escolha);
-                    getchar();
-                    if(escolha==0){
+                printf("[1] CONTINAR [2] VOLTAR\n");
+                scanf("%d",&luta);
+                getchar();
+
+                switch (luta){
+                    case 1:
                         batalha(player,mob,tamanho);
-                    }
-                    break;
-                case 3:
-                    mapa();
-                default:
-                    batalha(player,mob,tamanho);
-                    break;
-            }   
-                        
-        }
+                        break;
+
+                    case 2:
+                        mapa();
+                    default:
+                        printf("INVAIDO!\n");
+                        exit(1);
+                        break;
+                }   
+                            
+            }
+            break;
+
+        // Mochila
+        case 2:
+            
+            scanf("%d",&escolha);
+
+            break;
     }
+
 
 
             }while(luta==1);
